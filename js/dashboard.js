@@ -4,38 +4,31 @@ let plot = (data) => {
     labels: data.hourly.time /* ETIQUETA DE DATOS */,
     datasets: [
       {
+        type: "line",
         label: "Temperatura semanal" /* ETIQUETA DEL GRÁFICO */,
         data: data.hourly.temperature_2m /* ARREGLO DE DATOS */,
         fill: false,
         borderColor: "rgb(75, 192, 192)",
         tension: 0.1,
       },
+      {
+        type: "line",
+        label: "Uv index",
+        data: data.hourly.uv_index,
+        fill: false,
+        borderColor: 'rgb(54, 162, 235)',
+        tension: 0.1,
+      }
+    
     ],
   };
+
   const config = {
-    type: "line",
+    type: 'scatter',
     data: dataset,
   };
   const chart = new Chart(ctx, config);
- /*
-  const dataset2 = {
-    labels: data.hourly.time,
-    datasets: [
-      {
-        label: 'My First Dataset',
-        data: data.hourly.uv_index,
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
-      }
-    ]
-  }
-  const config2 = {
-    type: "line",
-    data: dataset2,
-  };
-  const chat2 = new Chart(ctx,config2);
-  */
+ 
 };
 
 let load = (data) => { 
