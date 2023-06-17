@@ -151,7 +151,7 @@ let load = (data) => {
   } else {
     let cachedData = JSON.parse(meteo);
     let currentTime = new Date().getTime();
-    let cachedTime = new Date(cachedData.fetchTime).getTime();
+    let cachedTime = cachedData.fetchTime ? new Date(cachedData.fetchTime).getTime() : null;
     let timeDiff = currentTime - cachedTime;
     // Actualizar los datos si ha pasado más de 5 minutos (300,000 ms)
     if (timeDiff > 300000) {
