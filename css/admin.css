@@ -38,10 +38,10 @@ body {
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
 .banner-day{
-  background-image: url(../img/bannerImgDay.jpg);
+  background-image: url(./../img/bannerImgDay.jpg);
 }
 .banner-night{
-  background-image: url(../img/bannerImgNight.jpg);
+  background-image: url(./../img/bannerImgNight.jpg);
 }
 
 #bannerPrincipal{

@@ -96,7 +96,7 @@ let load = (data) => {
   //<--DIA ACTUAL
 
   //DIA O NOCHE -->
-  let currentIsDay = data.hourly.is_day[0];
+  let currentIsDay = data.current_weather.is_day;
   let bannerPrincipalHTML =document.getElementById("bannerPrincipal")
   if(currentIsDay == 1){
     bannerPrincipalHTML.classList.add("banner-day");
