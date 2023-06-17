@@ -78,6 +78,10 @@ body {
 
 #sidebarMenu{
   padding-top: 0;
+  background-color: #020419;
+}
+.list-group-item{
+  background-color: #020419;
 }
 
 @media (max-width: 768px) {

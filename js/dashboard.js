@@ -9,7 +9,8 @@ let plot = (data) => {
         data: data.hourly.temperature_2m /* ARREGLO DE DATOS */,
         fill: true,
         borderColor: "rgb(75, 192, 192)",
-        tension: 0.1,
+        backgroundColor: "rgba(75, 192, 192,0.3)",
+     
       },
       {
         type: "line",
@@ -17,16 +18,56 @@ let plot = (data) => {
         data: data.hourly.uv_index,
         fill: true,
         borderColor: "rgb(54, 162, 235)",
-        tension: 0.1,
+        backgroundColor: "rgba(54, 162, 235,0.3)",
       },
     ],
   };
 
   const config = {
-    type: "scatter",
+    type: "line",
     data: dataset,
+    options: {
+      responsive:true,
+      plugins: {
+        legend: {
+          labels: {
+            font: {
+              size: 20,
+            },
+            color: "rgb(255, 255, 255)",
+          },
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          
+          color: 'black',
+        },
+        grid: {
+          display: true,
+          drawOnChartArea: true,
+          drawTicks: true,
+          color: "black"
+        }
+      },
+      y: {
+        ticks: { color: 'black' }
+      },
+      grid: {
+        display: true,
+        drawOnChartArea: true,
+        drawTicks: true,
+        color: "black"
+      }
+
+    }
   };
+  
   const chart = new Chart(ctx, config);
+  console.log(chart);
+  
 };
 
 let load = (data) => {
