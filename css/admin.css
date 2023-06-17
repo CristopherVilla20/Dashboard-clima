@@ -79,3 +79,19 @@ body {
 #sidebarMenu{
   padding-top: 0;
 }
+
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flex-container > #primerDiv {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .flex-container > #segundoDiv {
+    margin-right: 0;
+  }
+}
