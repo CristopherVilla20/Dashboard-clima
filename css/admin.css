@@ -1,5 +1,5 @@
 body {
-  background-color: #fbfbfb;
+  background-color: #020419;
 }
 @media (min-width: 991.98px) {
   main {
@@ -36,4 +36,46 @@ body {
   padding-top: 0.5rem;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+.banner-day{
+  background-image: url(../img/bannerImgDay.jpg);
+}
+.banner-night{
+  background-image: url(../img/bannerImgNight.jpg);
+}
+
+#bannerPrincipal{
+  position: relative;
+  padding-top: 50px;
+  margin-bottom: 10px;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+.flex-container > #primerDiv {
+  margin-right: 600px;
+}
+.flex-container > #segundoDiv {
+  margin-right: 100px;
+  padding-top: 60px;
+}
+#horaActual {
+  font-weight: bold;
+}
+
+.flex-container > div > p{
+  margin-bottom: 8px;
+}
+#currentWeather{
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: lighter;
+  font-size: 2.5rem;
+}
+#weatherCode{
+  color: white;
+}
+
+#sidebarMenu{
+  padding-top: 0;
 }
