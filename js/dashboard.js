@@ -147,20 +147,33 @@ let load = (data) => {
 (function () {
   let meteo = localStorage.getItem("meteo");
   if (meteo == null) {
+    loadData();
+  } else {
+    let cachedData = JSON.parse(meteo);
+    let currentTime = new Date().getTime();
+    let cachedTime = new Date(cachedData.fetchTime).getTime();
+    let timeDiff = currentTime - cachedTime;
+    // Actualizar los datos si ha pasado más de 5 minutos (300,000 ms)
+    if (timeDiff > 300000) {
+      loadData();
+    } else {
+      load(cachedData);
+    }
+  }
+
+  function loadData() {
     let URL =
       "https://api.open-meteo.com/v1/forecast?latitude=-2.20&longitude=-79.89&hourly=temperature_2m,uv_index,is_day&current_weather=true&timezone=auto";
 
     fetch(URL)
       .then((response) => response.json())
       .then((data) => {
+        data.fetchTime = new Date(); // Agregar la marca de tiempo de la solicitud
         load(data);
 
         /* GUARDAR DATA EN LA MEMORIA */
         localStorage.setItem("meteo", JSON.stringify(data));
       })
       .catch(console.error);
-  } else {
-    /* CARGAR DATA DESDE LA MEMORIA */
-    load(JSON.parse(meteo));
   }
 })();
