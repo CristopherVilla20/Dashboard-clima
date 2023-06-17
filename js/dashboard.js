@@ -109,34 +109,34 @@ let load = (data) => {
   let weatherCodeHTML = document.getElementById("weatherCode");
   switch (data.current_weather.weathercode) {
     case 0:
-      weatherCodeHTML.src = "../img/despejado.png";
+      weatherCodeHTML.src = "./img/despejado.png";
       weatherCodeHTML.alt = "Cielo despejado";
       break;
       case 1:
       case 2:
       case 3:
-      weatherCodeHTML.src = "../img/nublado.png";
+      weatherCodeHTML.src = "./img/nublado.png";
       weatherCodeHTML.alt = "Nublado";
       break;
       case 51:
       case 53:
       case 55:
-      weatherCodeHTML.src = "../img/llovizna.png";
+      weatherCodeHTML.src = "./img/llovizna.png";
       weatherCodeHTML.alt = "Llovizna";
       break;
       case 61:
       case 63:
       case 65:
-      weatherCodeHTML.src = "../img/lluvia.png";
+      weatherCodeHTML.src = "./img/lluvia.png";
       weatherCodeHTML.alt = "Lluvia";
       break;
       case 95:
-      weatherCodeHTML.src = "../img/tormenta.png";
+      weatherCodeHTML.src = "./img/tormenta.png";
       weatherCodeHTML.alt = "Tormenta eléctrica leve";
       break;
   
     default:
-      weatherCodeHTML.src = "../img/climaDesconocido.png" ;
+      weatherCodeHTML.src = "./img/climaDesconocido.png" ;
       weatherCodeHTML.alt = "Clima desconocido";
       break;
   }
