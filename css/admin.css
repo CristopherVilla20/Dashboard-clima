@@ -39,6 +39,8 @@ body {
 }
 .banner-day{
   background-image: url(./../img/bannerImgDay.jpg);
+  background-position-y: 20%;
+
 }
 .banner-night{
   background-image: url(./../img/bannerImgNight.jpg);
@@ -62,6 +64,7 @@ body {
 }
 #horaActual {
   font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .flex-container > div > p{
@@ -82,6 +85,9 @@ body {
 }
 .list-group-item{
   background-color: #020419;
+}
+.row{
+ justify-content: center;
 }
 
 @media (max-width: 768px) {

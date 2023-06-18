@@ -4,6 +4,8 @@ let plot = (data) => {
     labels: data.hourly.time /* ETIQUETA DE DATOS */,
     datasets: [
       {
+        yAxisID: 'yAxis1',
+        xAxisID: 'xAxis1',
         type: "line",
         label: "Temperatura semanal" /* ETIQUETA DEL GRÁFICO */,
         data: data.hourly.temperature_2m /* ARREGLO DE DATOS */,
@@ -13,6 +15,8 @@ let plot = (data) => {
      
       },
       {
+        yAxisID: 'yAxis2',
+        xAxisID: 'xAxis1',
         type: "line",
         label: "Uv index",
         data: data.hourly.uv_index,
@@ -20,6 +24,8 @@ let plot = (data) => {
         borderColor: "rgb(54, 162, 235)",
         backgroundColor: "rgba(54, 162, 235,0.3)",
       },
+      
+
     ],
   };
 
@@ -35,34 +41,49 @@ let plot = (data) => {
               size: 20,
             },
             color: "rgb(255, 255, 255)",
+            usePointStyle: false,
           },
         },
       },
-    },
-    scales: {
-      x: {
-        ticks: {
-          
-          color: 'black',
+      scales: {
+        xAxis1: {
+          ticks: {
+            color:"white",
+            autoSkipPadding: 30, // Espacio adicional entre etiquetas
+          },
+          grid: {
+            display: true,
+            drawOnChartArea: true,
+            drawTicks: true,
+            color: "rgba(255, 255, 255,0.5)"
+          }
         },
-        grid: {
-          display: true,
-          drawOnChartArea: true,
-          drawTicks: true,
-          color: "black"
+        yAxis1: {
+          ticks: { color: 'rgb(54, 162, 235)' },
+            grid: {
+            display: true,
+            drawOnChartArea: true,
+            drawTicks: true,
+            color: "rgba(255, 255, 255,0.2)"
+          }
+        },
+        yAxis2: {
+          ticks: { color: 'rgb(75, 192, 192)' },
+            grid: {
+            display: true,
+            drawOnChartArea: true,
+            drawTicks: true,
+            color: "rgba(255, 255, 255,0.2)"
+          },
         }
       },
-      y: {
-        ticks: { color: 'black' }
-      },
-      grid: {
-        display: true,
-        drawOnChartArea: true,
-        drawTicks: true,
-        color: "black"
+      elements:{
+        point:{
+          radius:2
+        }
       }
-
-    }
+    },
+    
   };
   
   const chart = new Chart(ctx, config);
@@ -204,7 +225,7 @@ let load = (data) => {
 
   function loadData() {
     let URL =
-      "https://api.open-meteo.com/v1/forecast?latitude=-2.20&longitude=-79.89&hourly=temperature_2m,uv_index,is_day&current_weather=true&timezone=auto";
+      "https://api.open-meteo.com/v1/forecast?latitude=-2.20&longitude=-79.89&hourly=temperature_2m,uv_index&current_weather=true&forecast_days=3&timezone=auto";
 
     fetch(URL)
       .then((response) => response.json())
