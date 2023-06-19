@@ -206,6 +206,23 @@ let load = (data) => {
   
 };
 
+let loadInocar = () => { 
+  let URL_proxy = 'https://cors-anywhere.herokuapp.com/' // Coloque el URL de acuerdo con la opción de proxy
+  let URL = URL_proxy + 'https://www.inocar.mil.ec/mareas/consultan.php';
+  fetch(URL)
+     	.then(response => response.text())
+        .then(data => {
+           const parser = new DOMParser();
+           const xml = parser.parseFromString(data, "text/html");
+           console.log(xml);
+           let contenedorMareas = xml.getElementsByClassName('container-fluid')[0];
+           console.log(contenedorMareas);
+           let contenedorHTML = document.getElementById('table-container');
+           contenedorHTML.innerHTML = contenedorMareas.innerHTML;
+        })
+        .catch(console.error);
+}
+
 (function () {
   let meteo = localStorage.getItem("meteo");
   if (meteo == null) {
@@ -221,7 +238,9 @@ let load = (data) => {
     } else {
       load(cachedData);
     }
+    
   }
+  loadInocar();
 
   function loadData() {
     let URL =
