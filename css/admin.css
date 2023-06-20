@@ -89,7 +89,12 @@ body {
 .row{
  justify-content: center;
 }
-
+#table-container{
+  color: white;
+}
+#table-container *{
+  color: white;
+}
 @media (max-width: 768px) {
   .flex-container {
     flex-direction: column;
