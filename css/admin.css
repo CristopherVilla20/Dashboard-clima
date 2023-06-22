@@ -104,9 +104,11 @@ body {
   .flex-container > #primerDiv {
     margin-right: 0;
     margin-bottom: 20px;
+    justify-content: center;
   }
 
   .flex-container > #segundoDiv {
     margin-right: 0;
+    justify-content: center;
   }
 }
