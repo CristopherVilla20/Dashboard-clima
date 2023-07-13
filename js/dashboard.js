@@ -59,7 +59,7 @@ let plot = (data) => {
           }
         },
         yAxis1: {
-          ticks: { color: 'rgb(54, 162, 235)' },
+          ticks: { color: 'rgb(75, 192, 192)' },
             grid: {
             display: true,
             drawOnChartArea: true,
@@ -68,7 +68,7 @@ let plot = (data) => {
           }
         },
         yAxis2: {
-          ticks: { color: 'rgb(75, 192, 192)' },
+          ticks: { color: 'rgb(54, 162, 235)' },
             grid: {
             display: true,
             drawOnChartArea: true,
@@ -96,6 +96,18 @@ let load = (data) => {
 
   plot(data);
 
+  let sectionWeatherHTML = document.getElementById('sectionWeather');
+  sectionWeatherHTML.addEventListener('click', function(event) {
+    if(!sectionWeatherHTML.classList.contains("active")){
+      sectionWeatherHTML.classList.add("active")}
+    sectionTableHTML.classList.remove("active")
+  });
+
+  let sectionTableHTML = document.getElementById("sectionTable");
+  sectionTableHTML.addEventListener('click', function(event) {
+    sectionTableHTML.classList.add("active")
+    sectionWeatherHTML.classList.remove("active")
+  });
 
   let timezone = data["timezone"];
   let timezoneHTML = document.getElementById("timezone");
